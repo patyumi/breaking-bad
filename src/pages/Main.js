@@ -58,10 +58,12 @@ const Main = () => {
 
   // Função busca personagem pelo nome
   const fetchCharacter = name => {
+    setLoading(true);
     api
       .get(`characters?name=${name}`)
       .then(res => {
         setData(res.data);
+        setLoading(false);
       });
   }
 
