@@ -15,9 +15,9 @@ const Pagination = ({ dataPerPage, totalData, paginate }) => {
       <ul>
         {pageNumbers.map(number => (
           <li key={number}>
-            <a onClick={() => paginate(number)} href="!#">
+            <button type="button" onClick={() => paginate(number)}>
               {number}
-            </a>
+            </button>
           </li>
         ))}
       </ul>

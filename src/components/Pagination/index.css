@@ -17,11 +17,10 @@ ul li {
   margin: 0 10px;
 }
 
-ul li a {
+ul li button {
   color: #fff;
   text-decoration: none;
-}
-
-ul li a:visited {
-  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
