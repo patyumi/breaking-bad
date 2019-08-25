@@ -7,3 +7,15 @@
 
   margin: 0 160px;
 }
+
+@media screen and (max-width: 600px) {
+  .background {
+    display: flex;
+    flex-direction: column;
+    flex: 0;
+
+    align-items: center;
+
+    margin: 0 30px;
+  }
+}

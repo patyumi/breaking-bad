@@ -25,14 +25,14 @@ const Header = props => {
   };
 
   // Busca nome digitado pelo usuario
-  const fetchCharacter = name => {
-    api.get(`characters?name=${name}`).then(res => {
-      setData(res.data);
-    });
+  const fetchCharacter = async(name) => {
+    const res = await api.get(`characters?name=${name}`);
+    setData(res.data);
+    setName('');
   };
 
   return (
-    <nav class="header">
+    <nav className="header">
       <img src={logo} alt="Breaking Bad" />
       <form>
         <input

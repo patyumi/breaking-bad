@@ -6,6 +6,7 @@ import api from "../../services/api";
 // Folhas de estilo / Ícones
 import { MdStar } from "react-icons/md";
 import "./index.css";
+import loadingGif from '../../assets/loading.gif';
 
 const Cards = props => {
   // Armazena dados dos personagens
@@ -14,7 +15,7 @@ const Cards = props => {
 
   // Recarrega dados quando a página é renderizada, ou quando o ID dos personagens muda
   useEffect(() => {
-    getCharacters();
+    getCharacters(props.offset, props.limit);
   }, [props.offset]);
 
   useEffect(() => {
@@ -24,11 +25,13 @@ const Cards = props => {
   }, [props.data]);
 
   // Busca personagens
-  const getCharacters = async () => {
+  const getCharacters = async (offset, limit) => {
+    setLoading(true);
     const res = await api.get(
-      `characters?limit=${props.limit}&offset=${props.offset}`
+      `characters?limit=${limit}&offset=${offset}`
     );
     setData(res.data);
+    setLoading(false);
   };
 
   return (
@@ -37,16 +40,18 @@ const Cards = props => {
         {data.length === 1 ? (
           <>
             <h2>Você pesquisou por {data[0].name}</h2>
-            <button type="button">Voltar</button>
+            <button type="button" onClick={() => getCharacters(0, 8)}>Voltar</button>
           </>
         ) : (
           <h2>Personagens</h2>
         )}
       </header>
 
-      <div className="card">
-        {!loading ? (
-          data.map(character => (
+        <div className="card">
+        {(!loading) ? (
+
+            data.map(character => (
+
             <div
               key={character.char_id}
               style={{
@@ -88,10 +93,14 @@ const Cards = props => {
                 </div>
               </div>
             </div>
+
           ))
-        ) : (
-          <h1>Loading...</h1>
-        )}
+
+        )  : (
+        <div className="loading">
+          <img className="loading-img" src={loadingGif} alt="loading gif"/>
+        </div>
+      )}
       </div>
     </div>
   );

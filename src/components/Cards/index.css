@@ -103,6 +103,22 @@
   border: none;
 }
 
+.body .loading {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.body .loading .loading-img {
+  width: auto;
+  height: auto;
+}
+
 @media screen and (max-width: 600px) {
   .body .card {
     display: grid;
@@ -112,5 +128,11 @@
 
     width: 100%;
     height: 100%;
+  }
+
+  .card .card-body .card-footer {
+    height: 20%;
+
+    font-size: 12px;
   }
 }
