@@ -17,10 +17,17 @@ ul li {
   margin: 0 10px;
 }
 
+ul button,
 ul li button {
   color: #fff;
   text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 16px;
+}
+
+ul li .selected {
+  border-bottom: 1px double white;
+  font-weight: bold;
 }

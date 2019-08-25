@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 150px;
+  width: 100%;
+}
+
+.header img {
+  width: 220px;
+  cursor: pointer;
+}
+
+.header form {
+  border-bottom: 1px solid #fff;
+  display: inline-block;
+  padding: 4px;
+  width: 30%;
+}
+
+.header form input {
+  border: none;
+  width: 90%;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  background: transparent;
+}
+
+::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.header form button {
+  background: none;
+  border: none;
+  color: #fff;
+  width: 10%;
+  cursor: pointer;
+}

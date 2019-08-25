@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 
 // Componentes
-import Main from './pages/Main';
+import Main from "./pages/Main";
+
+import "./styles/global.css";
 
 const App = () => {
-
-  return (
-   <Main />
-  );
-}
+  return <Main />;
+};
 
 export default App;
