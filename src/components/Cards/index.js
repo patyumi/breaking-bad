@@ -7,6 +7,7 @@ import api from "../../services/api";
 import { MdStar } from "react-icons/md";
 import "./index.css";
 import loadingGif from '../../assets/loading.gif';
+import { unregisterDecorator } from "handlebars";
 
 const Cards = props => {
   // Armazena dados dos personagens
@@ -22,6 +23,7 @@ const Cards = props => {
     if (props.data !== 0) {
       setData(props.data);
     }
+
   }, [props.data]);
 
   // Busca personagens
@@ -49,6 +51,8 @@ const Cards = props => {
 
         <div className="card">
         {(!loading) ? (
+
+
 
             data.map(character => (
 
@@ -98,7 +102,8 @@ const Cards = props => {
 
         )  : (
         <div className="loading">
-          <img className="loading-img" src={loadingGif} alt="loading gif"/>
+          {/*<img className="loading-img" src={loadingGif} alt="loading gif"/>      */}
+          <p>Limite de requisições de API atingida! Tente mais tade.</p>
         </div>
       )}
       </div>
